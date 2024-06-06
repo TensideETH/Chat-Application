@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application</title>
+    <style>
+        /* CSS styles here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="chat-box"></div>
+        <form id="chat-form">
+            <input type="text" id="message-input" placeholder="Enter your message">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const chatBox = document.getElementById('chat-box');
+            const form = document.getElementById('chat-form');
+            const input = document.getElementById('message-input');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const messageText = input.value.trim();
+                if (messageText !== '') {
+                    const message = document.createElement('div');
+                    message.textContent = messageText;
+                    chatBox.appendChild(message);
+                    input.value = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
